@@ -1,11 +1,24 @@
-import js from "@eslint/js";
 import globals from "globals";
-import tseslint from "typescript-eslint";
-import { defineConfig } from "eslint/config";
+import pluginJs from "@eslint/js";
+import jest from "eslint-plugin-jest";
+import eslintRecommended from "@eslint/js/src/configs/eslint-recommended.js";
 
-
-export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs,ts,mts,cts}"], plugins: { js }, extends: ["js/recommended"] },
-  { files: ["**/*.{js,mjs,cjs,ts,mts,cts}"], languageOptions: { globals: globals.browser } },
-  tseslint.configs.recommended,
-]);
+export default [
+  eslintRecommended,
+  {
+    languageOptions: {
+      globals: globals.browser,
+    },
+    rules: {
+      ...pluginJs.configs.recommended.rules,
+      "prefer-const": "error",
+      "no-unused-vars": "error",
+      "no-console": "error",
+      semi: "error",
+    },
+  },
+  {
+    files: ["src/**/*.test.js"],
+    ...jest.configs["flat/recommended"],
+  },
+];

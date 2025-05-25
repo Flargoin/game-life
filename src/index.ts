@@ -3,3 +3,5 @@ const sum = (a: number, b: number): void => {
 };
 
 sum(4, 3);
+
+console.log("Этот код из TypeScript файла");
