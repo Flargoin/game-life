@@ -14,7 +14,8 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
-      "eslint"
+      "eslint",
+      "jest"
     ],
     "*.{test.js,spec.js}": [
       "jest --bail --findRelatedTests"
