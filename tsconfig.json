@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
-    "moduleResolution": "node",
+    "target": "ES6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
-    "strict": true
+    "outDir": "./dist"
   },
-  // "include": ["src/**/*"]
+  "include": ["src"]
 }

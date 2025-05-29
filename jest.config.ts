@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type {Config} from 'jest';
+import type { Config } from "jest";
 
 const config: Config = {
   // All imported modules in your tests should be mocked automatically
@@ -44,7 +44,13 @@ const config: Config = {
   // ],
 
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+    },
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
@@ -84,6 +90,8 @@ const config: Config = {
   //   "cjs",
   //   "jsx",
   //   "ts",
+  //   "mts",
+  //   "cts",
   //   "tsx",
   //   "json",
   //   "node"
@@ -156,8 +164,8 @@ const config: Config = {
 
   // The glob patterns Jest uses to detect test files
   // testMatch: [
-  //   "**/__tests__/**/*.[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).[tj]s?(x)"
+  //   "**/__tests__/**/*.?([mc])[jt]s?(x)",
+  //   "**/?(*.)+(spec|test).?([mc])[jt]s?(x)"
   // ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
